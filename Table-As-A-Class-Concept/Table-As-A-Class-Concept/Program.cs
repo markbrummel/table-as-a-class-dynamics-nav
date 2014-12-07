@@ -24,8 +24,6 @@ namespace Table_As_A_Class_Concept
             foreach (string Addr in Cust.formatAddress())
                 Console.WriteLine(Addr);
 
-            Console.ReadKey();
-
             Console.WriteLine("Create the Sales Header..............");
 
             SalesHeader SalesHdr = new SalesHeader();
@@ -37,10 +35,12 @@ namespace Table_As_A_Class_Concept
 
             Console.WriteLine(SalesHdr.SelltoCustomerName);
             Console.WriteLine(SalesHdr.OrderDate.ToString());
-
+                     
             Console.WriteLine("Post Sales Header..............");
 
             SalesInvoice SalesInv = SalesHdr.Post();
+
+            Console.WriteLine(SalesInv.SelltoCustomerName);
 
             Console.WriteLine("Print Address Sales Invoice..............");
             

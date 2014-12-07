@@ -2,14 +2,19 @@
 
 public class Customer
 {
+    private string _no_;
     public string No_
     {
         get
         {
-            NoSeriesManagement test = new NoSeriesManagement();
-            return test.GetNextNo("");;
+            if (String.IsNullOrWhiteSpace(_no_))
+            {
+                NoSeriesManagement test = new NoSeriesManagement();
+                _no_ = test.GetNextNo("");
+            }
+            return _no_;
         }
-        set { No_ = value; }
+        set { _no_ = value; }
     }
     public string Name { get; set; }
     public string SearchName { get; set; }
@@ -39,11 +44,7 @@ public class SalesHeader
         set { PostingDate = value; } 
     }
     public DateTime PostingDate { get; set; }
-    public string SelltoCustomerName 
-    { 
-        get; 
-        set; 
-    }
+    public string SelltoCustomerName { get; set; }
     public string SelltoAddress { get; set; }
     
     public void OnValidateSelltoCustomerNo_ (Customer Customer)
